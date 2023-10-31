@@ -1,0 +1,1105 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Oct 31 01:15:24 2023
+# Process ID: 10888
+# Current directory: D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.runs/synth_1
+# Command line: vivado.exe -log INTEGRATOR_PLACEHOLDER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source INTEGRATOR_PLACEHOLDER.tcl
+# Log file: D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.runs/synth_1/INTEGRATOR_PLACEHOLDER.vds
+# Journal file: D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source INTEGRATOR_PLACEHOLDER.tcl -notrace
+Command: synth_design -top INTEGRATOR_PLACEHOLDER -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 14512 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 356.039 ; gain = 98.707
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'INTEGRATOR_PLACEHOLDER' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/INTEGRATOR_PLACEHOLDER.v:23]
+	Parameter PASS bound to: 7'b0001001 
+	Parameter FAIL bound to: 7'b0000011 
+	Parameter NIL bound to: 7'b1111111 
+INFO: [Synth 8-638] synthesizing module 'MouseCtl' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:212]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter CHECK_PERIOD_MS bound to: 500 - type: integer 
+	Parameter TIMEOUT_PERIOD_MS bound to: 100 - type: integer 
+INFO: [Synth 8-3491] module 'Ps2Interface' declared at 'D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Ps2Interface.vhd:156' bound to instance 'Inst_Ps2Interface' of component 'Ps2Interface' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:374]
+INFO: [Synth 8-638] synthesizing module 'Ps2Interface' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Ps2Interface.vhd:184]
+INFO: [Synth 8-256] done synthesizing module 'Ps2Interface' (1#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Ps2Interface.vhd:184]
+WARNING: [Synth 8-6014] Unused sequential element inc_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:455]
+WARNING: [Synth 8-6014] Unused sequential element x_inter_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:461]
+WARNING: [Synth 8-6014] Unused sequential element inc_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:519]
+WARNING: [Synth 8-6014] Unused sequential element y_inter_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:525]
+INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (2#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Mouse_Control.vhd:212]
+WARNING: [Synth 8-689] width (7) of port connection 'xpos' does not match port width (12) of module 'MouseCtl' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/INTEGRATOR_PLACEHOLDER.v:43]
+WARNING: [Synth 8-689] width (6) of port connection 'ypos' does not match port width (12) of module 'MouseCtl' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/INTEGRATOR_PLACEHOLDER.v:43]
+INFO: [Synth 8-6157] synthesizing module 'CLOCK_DIVIDER' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLOCK_DIVIDER.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'CLOCK_DIVIDER' (3#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLOCK_DIVIDER.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+	Parameter Width bound to: 96 - type: integer 
+	Parameter Height bound to: 64 - type: integer 
+	Parameter PixelCount bound to: 6144 - type: integer 
+	Parameter PixelCountWidth bound to: 13 - type: integer 
+	Parameter ClkFreq bound to: 6250000 - type: integer 
+	Parameter FrameFreq bound to: 60 - type: integer 
+	Parameter FrameDiv bound to: 104166 - type: integer 
+	Parameter FrameDivWidth bound to: 17 - type: integer 
+	Parameter PowerDelay bound to: 20 - type: integer 
+	Parameter ResetDelay bound to: 3 - type: integer 
+	Parameter VccEnDelay bound to: 20 - type: integer 
+	Parameter StartupCompleteDelay bound to: 100 - type: integer 
+	Parameter MaxDelay bound to: 100 - type: integer 
+	Parameter MaxDelayCount bound to: 625000 - type: integer 
+	Parameter StateCount bound to: 32 - type: integer 
+	Parameter StateWidth bound to: 5 - type: integer 
+	Parameter PowerUp bound to: 5'b00000 
+	Parameter Reset bound to: 5'b00001 
+	Parameter ReleaseReset bound to: 5'b00011 
+	Parameter EnableDriver bound to: 5'b00010 
+	Parameter DisplayOff bound to: 5'b00110 
+	Parameter SetRemapDisplayFormat bound to: 5'b00111 
+	Parameter SetStartLine bound to: 5'b00101 
+	Parameter SetOffset bound to: 5'b00100 
+	Parameter SetNormalDisplay bound to: 5'b01100 
+	Parameter SetMultiplexRatio bound to: 5'b01101 
+	Parameter SetMasterConfiguration bound to: 5'b01111 
+	Parameter DisablePowerSave bound to: 5'b01110 
+	Parameter SetPhaseAdjust bound to: 5'b01010 
+	Parameter SetDisplayClock bound to: 5'b01011 
+	Parameter SetSecondPrechargeA bound to: 5'b01001 
+	Parameter SetSecondPrechargeB bound to: 5'b01000 
+	Parameter SetSecondPrechargeC bound to: 5'b11000 
+	Parameter SetPrechargeLevel bound to: 5'b11001 
+	Parameter SetVCOMH bound to: 5'b11011 
+	Parameter SetMasterCurrent bound to: 5'b11010 
+	Parameter SetContrastA bound to: 5'b11110 
+	Parameter SetContrastB bound to: 5'b11111 
+	Parameter SetContrastC bound to: 5'b11101 
+	Parameter DisableScrolling bound to: 5'b11100 
+	Parameter ClearScreen bound to: 5'b10100 
+	Parameter VccEn bound to: 5'b10101 
+	Parameter DisplayOn bound to: 5'b10111 
+	Parameter PrepareNextFrame bound to: 5'b10110 
+	Parameter SetColAddress bound to: 5'b10010 
+	Parameter SetRowAddress bound to: 5'b10011 
+	Parameter WaitNextFrame bound to: 5'b10001 
+	Parameter SendPixel bound to: 5'b10000 
+	Parameter SpiCommandMaxWidth bound to: 40 - type: integer 
+	Parameter SpiCommandBitCountWidth bound to: 6 - type: integer 
+INFO: [Synth 8-226] default block is never used [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Oled_Display.v:123]
+INFO: [Synth 8-226] default block is never used [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Oled_Display.v:198]
+WARNING: [Synth 8-693] zero replication count - replication ignored [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Oled_Display.v:346]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (4#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+INFO: [Synth 8-6157] synthesizing module 'CARTESIAN' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CARTESIAN.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'CARTESIAN' (5#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CARTESIAN.v:3]
+INFO: [Synth 8-6157] synthesizing module 'LFSR_13b' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/LFSR.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'LFSR_13b' (6#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/LFSR.v:3]
+INFO: [Synth 8-6157] synthesizing module 'CIRCLE_TOP' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:22]
+INFO: [Synth 8-6157] synthesizing module 'CIRCLE_GENERATOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:3]
+	Parameter MAX_R bound to: 36 - type: integer 
+	Parameter MIN_R bound to: 6 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:3]
+WARNING: [Synth 8-6014] Unused sequential element x_diff_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:15]
+WARNING: [Synth 8-6014] Unused sequential element y_diff_reg was removed.  [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'DIST_CALC' (7#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:3]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:18]
+WARNING: [Synth 8-689] width (32) of port connection 'xpos' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:18]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:18]
+WARNING: [Synth 8-689] width (32) of port connection 'ypos' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'CIRCLE_GENERATOR' (8#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:3]
+INFO: [Synth 8-6157] synthesizing module 'CLICK_DETECTOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:3]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:14]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:14]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:17]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:17]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:20]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:20]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'CLICK_DETECTOR' (9#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CLICK_DETECTOR.v:3]
+WARNING: [Synth 8-689] width (6) of port connection 'r_1' does not match port width (7) of module 'CLICK_DETECTOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:43]
+WARNING: [Synth 8-689] width (6) of port connection 'r_2' does not match port width (7) of module 'CLICK_DETECTOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:43]
+WARNING: [Synth 8-689] width (6) of port connection 'r_3' does not match port width (7) of module 'CLICK_DETECTOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:43]
+WARNING: [Synth 8-689] width (6) of port connection 'r_4' does not match port width (7) of module 'CLICK_DETECTOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:43]
+INFO: [Synth 8-6157] synthesizing module 'RIPPLES' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:3]
+	Parameter YELLOW bound to: 16'b1111111101000000 
+	Parameter BLUE bound to: 16'b0000000000011111 
+	Parameter GREEN bound to: 16'b0000011111100000 
+	Parameter RED bound to: 16'b1111100000000000 
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:17]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:17]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:20]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:20]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'x' does not match port width (7) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:26]
+WARNING: [Synth 8-689] width (32) of port connection 'y' does not match port width (6) of module 'DIST_CALC' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'RIPPLES' (10#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:3]
+WARNING: [Synth 8-689] width (6) of port connection 'r_1' does not match port width (7) of module 'RIPPLES' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:56]
+WARNING: [Synth 8-689] width (6) of port connection 'r_2' does not match port width (7) of module 'RIPPLES' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:56]
+WARNING: [Synth 8-689] width (6) of port connection 'r_3' does not match port width (7) of module 'RIPPLES' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:56]
+WARNING: [Synth 8-689] width (6) of port connection 'r_4' does not match port width (7) of module 'RIPPLES' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:56]
+INFO: [Synth 8-6157] synthesizing module 'DISCOMBOBULATOR' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DISCOMBOBULATOR.v:3]
+	Parameter COLOUR_1 bound to: 16'b1010101010101010 
+	Parameter COLOUR_2 bound to: 16'b0101010101010101 
+	Parameter COLOUR_3 bound to: 16'b1111111000000000 
+	Parameter COLOUR_4 bound to: 16'b1100101100100010 
+	Parameter SPEED_1 bound to: 520832 - type: integer 
+	Parameter SPEED_2 bound to: 1041665 - type: integer 
+	Parameter SPEED_3 bound to: 1562499 - type: integer 
+	Parameter SPEED_4 bound to: 2083332 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'DISCOMBOBULATOR' (11#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DISCOMBOBULATOR.v:3]
+INFO: [Synth 8-6157] synthesizing module 'OLED_MANAGER' [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/OLED_MANAGER.v:3]
+	Parameter WHITE bound to: 16'b1111111111111111 
+	Parameter PURPLE bound to: 16'b1111100000011110 
+INFO: [Synth 8-6155] done synthesizing module 'OLED_MANAGER' (12#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/OLED_MANAGER.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'CIRCLE_TOP' (13#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_TOP.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'INTEGRATOR_PLACEHOLDER' (14#1) [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/INTEGRATOR_PLACEHOLDER.v:23]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port btnC
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port middle
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port right
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port new_event
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[15]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[14]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[13]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[12]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[11]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[10]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[9]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[8]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[7]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[6]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[5]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[4]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[12]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[11]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[10]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[9]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[8]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[7]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[6]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[5]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[4]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[0]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[0]
+WARNING: [Synth 8-3331] design INTEGRATOR_PLACEHOLDER has unconnected port JC[2]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 415.855 ; gain = 158.523
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 415.855 ; gain = 158.523
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 415.855 ; gain = 158.523
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/constrs_1/new/CAPTCHA_Constraints.xdc]
+CRITICAL WARNING: [Common 17-170] Unknown option '-wavform', please type 'create_clock -help' for usage info. [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/constrs_1/new/CAPTCHA_Constraints.xdc:9]
+Finished Parsing XDC File [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/constrs_1/new/CAPTCHA_Constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/constrs_1/new/CAPTCHA_Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/INTEGRATOR_PLACEHOLDER_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/INTEGRATOR_PLACEHOLDER_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 758.969 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 758.969 ; gain = 501.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 758.969 ; gain = 501.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 758.969 ; gain = 501.637
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
+INFO: [Synth 8-5546] ROM "reset_bit_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "busy" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "read_data" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "load_tx_data" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ps2_clk_h" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "delay_100us_counter_enable" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "delay_20us_counter_enable" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "delay_63clk_counter_enable" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MouseCtl'
+INFO: [Synth 8-5545] ROM "periodic_check_tick" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "timeout" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reset_periodic_check_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "new_event" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "clk_fdiv0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
+INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "fsm_next_state0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:18]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/DIST_CALC.v:15]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/CIRCLE_GENERATOR.v:48]
+INFO: [Synth 8-5544] ROM "oled_circ" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                00000000000000001 |                            00000
+            rx_down_edge |                00000000000000010 |                            00011
+                rx_clk_l |                00000000000000100 |                            00010
+                rx_clk_h |                00000000000001000 |                            00001
+         rx_error_parity |                00000000000010000 |                            00100
+           rx_data_ready |                00000000000100000 |                            00101
+          tx_force_clk_l |                00000000001000000 |                            00110
+      tx_bring_data_down |                00000000010000000 |                            00111
+          tx_release_clk |                00000000100000000 |                            01000
+ tx_first_wait_down_edge |                00000001000000000 |                            01001
+                tx_clk_l |                00000010000000000 |                            01010
+         tx_wait_up_edge |                00000100000000000 |                            01011
+tx_wait_up_edge_before_ack |                00001000000000000 |                            01101
+             tx_wait_ack |                00010000000000000 |                            01110
+         tx_received_ack |                00100000000000000 |                            01111
+         tx_error_no_ack |                01000000000000000 |                            10000
+                tx_clk_h |                10000000000000000 |                            01100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Ps2Interface'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   reset | 0000000000000000000000000000000000001 |                           000000
+          reset_wait_ack | 0000000000000000000000000000000000010 |                           000001
+reset_wait_bat_completion | 0000000000000000000000000000000000100 |                           000010
+           reset_wait_id | 0000000000000000000000000000000001000 |                           000011
+reset_set_sample_rate_200 | 0000000000000000000000000000000010000 |                           000100
+reset_set_sample_rate_200_wait_ack | 0000000000000000000000000000000100000 |                           000101
+reset_send_sample_rate_200 | 0000000000000000000000000000001000000 |                           000110
+reset_send_sample_rate_200_wait_ack | 0000000000000000000000000000010000000 |                           000111
+reset_set_sample_rate_100 | 0000000000000000000000000000100000000 |                           001000
+reset_set_sample_rate_100_wait_ack | 0000000000000000000000000001000000000 |                           001001
+reset_send_sample_rate_100 | 0000000000000000000000000010000000000 |                           001010
+reset_send_sample_rate_100_wait_ack | 0000000000000000000000000100000000000 |                           001011
+reset_set_sample_rate_80 | 0000000000000000000000001000000000000 |                           001100
+reset_set_sample_rate_80_wait_ack | 0000000000000000000000010000000000000 |                           001101
+reset_send_sample_rate_80 | 0000000000000000000000100000000000000 |                           001110
+reset_send_sample_rate_80_wait_ack | 0000000000000000000001000000000000000 |                           001111
+           reset_read_id | 0000000000000000000010000000000000000 |                           010000
+  reset_read_id_wait_ack | 0000000000000000000100000000000000000 |                           010001
+   reset_read_id_wait_id | 0000000000000000001000000000000000000 |                           010010
+    reset_set_resolution | 0000000000000000010000000000000000000 |                           010011
+reset_set_resolution_wait_ack | 0000000000000000100000000000000000000 |                           010100
+   reset_send_resolution | 0000000000000001000000000000000000000 |                           010101
+reset_send_resolution_wait_ack | 0000000000000010000000000000000000000 |                           010110
+reset_set_sample_rate_40 | 0000000000000100000000000000000000000 |                           010111
+reset_set_sample_rate_40_wait_ack | 0000000000001000000000000000000000000 |                           011000
+reset_send_sample_rate_40 | 0000000000010000000000000000000000000 |                           011001
+reset_send_sample_rate_40_wait_ack | 0000000000100000000000000000000000000 |                           011010
+  reset_enable_reporting | 0000000001000000000000000000000000000 |                           011011
+reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |                           011100
+             read_byte_1 | 0000000100000000000000000000000000000 |                           011101
+             read_byte_2 | 0000001000000000000000000000000000000 |                           011110
+             read_byte_3 | 0000010000000000000000000000000000000 |                           011111
+             read_byte_4 | 0000100000000000000000000000000000000 |                           100000
+          mark_new_event | 0001000000000000000000000000000000000 |                           100100
+           check_read_id | 0010000000000000000000000000000000000 |                           100001
+  check_read_id_wait_ack | 0100000000000000000000000000000000000 |                           100010
+   check_read_id_wait_id | 1000000000000000000000000000000000000 |                           100011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 PowerUp | 00000000100000000000000000000000 |                            00000
+                   Reset | 00000000000100000000000000000000 |                            00001
+            ReleaseReset | 00000000000000000000100000000000 |                            00011
+            EnableDriver | 00000000000000000001000000000000 |                            00010
+              DisplayOff | 00000000000000000100000000000000 |                            00110
+   SetRemapDisplayFormat | 00000100000000000000000000000000 |                            00111
+            SetStartLine | 00001000000000000000000000000000 |                            00101
+               SetOffset | 10000000000000000000000000000000 |                            00100
+        SetNormalDisplay | 00000000000000000000000010000000 |                            01100
+       SetMultiplexRatio | 00000000000000000000000000100000 |                            01101
+  SetMasterConfiguration | 00000000000000000000000001000000 |                            01111
+        DisablePowerSave | 00000000000000000000000000000100 |                            01110
+          SetPhaseAdjust | 00000000000000000000000000001000 |                            01010
+         SetDisplayClock | 00000000001000000000000000000000 |                            01011
+     SetSecondPrechargeA | 00000000010000000000000000000000 |                            01001
+     SetSecondPrechargeB | 01000000000000000000000000000000 |                            01000
+     SetSecondPrechargeC | 00000010000000000000000000000000 |                            11000
+       SetPrechargeLevel | 00000001000000000000000000000000 |                            11001
+                SetVCOMH | 00000000000000010000000000000000 |                            11011
+        SetMasterCurrent | 00000000000000100000000000000000 |                            11010
+            SetContrastA | 00000000000001000000000000000000 |                            11110
+            SetContrastB | 00100000000000000000000000000000 |                            11111
+            SetContrastC | 00000000000000000000000000000001 |                            11101
+        DisableScrolling | 00000000000000000000000000000010 |                            11100
+             ClearScreen | 00000000000000000000000000010000 |                            10100
+                   VccEn | 00010000000000000000000000000000 |                            10101
+               DisplayOn | 00000000000010000000000000000000 |                            10111
+        PrepareNextFrame | 00000000000000001000000000000000 |                            10110
+           SetColAddress | 00000000000000000000010000000000 |                            10010
+           SetRowAddress | 00000000000000000000000100000000 |                            10011
+           WaitNextFrame | 00000000000000000000001000000000 |                            10001
+               SendPixel | 00000000000000000010000000000000 |                            10000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Oled_Display'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 758.969 ; gain = 501.637
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 11    
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input     21 Bit       Adders := 2     
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input     19 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     12 Bit       Adders := 4     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 11    
+	   2 Input      7 Bit       Adders := 7     
+	   3 Input      7 Bit       Adders := 9     
+	   2 Input      6 Bit       Adders := 10    
+	   3 Input      6 Bit       Adders := 9     
+	   2 Input      4 Bit       Adders := 3     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               40 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               21 Bit    Registers := 2     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	               14 Bit    Registers := 13    
+	               13 Bit    Registers := 7     
+	               12 Bit    Registers := 6     
+	               11 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
+	                7 Bit    Registers := 5     
+	                6 Bit    Registers := 9     
+	                4 Bit    Registers := 4     
+	                1 Bit    Registers := 37    
++---Multipliers : 
+	                32x32  Multipliers := 4     
++---Muxes : 
+	   2 Input     40 Bit        Muxes := 3     
+	  37 Input     37 Bit        Muxes := 1     
+	   2 Input     37 Bit        Muxes := 69    
+	  32 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     21 Bit        Muxes := 2     
+	  32 Input     20 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 1     
+	   2 Input     19 Bit        Muxes := 1     
+	  17 Input     17 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 19    
+	   2 Input     16 Bit        Muxes := 3     
+	   5 Input     16 Bit        Muxes := 1     
+	   8 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 12    
+	   5 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 19    
+	   5 Input     13 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 10    
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	  37 Input      8 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 22    
+	   3 Input      7 Bit        Muxes := 1     
+	  32 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 19    
+	   2 Input      5 Bit        Muxes := 2     
+	  32 Input      5 Bit        Muxes := 1     
+	  37 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 14    
+	  17 Input      1 Bit        Muxes := 4     
+	  37 Input      1 Bit        Muxes := 20    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module INTEGRATOR_PLACEHOLDER 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+Module Ps2Interface 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 3     
++---Registers : 
+	               11 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	  17 Input     17 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 18    
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	  17 Input      1 Bit        Muxes := 4     
+Module MouseCtl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input     12 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               26 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               12 Bit    Registers := 6     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	  37 Input     37 Bit        Muxes := 1     
+	   2 Input     37 Bit        Muxes := 69    
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 10    
+	   2 Input      9 Bit        Muxes := 2     
+	  37 Input      8 Bit        Muxes := 3     
+	  37 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	  37 Input      1 Bit        Muxes := 20    
+Module CLOCK_DIVIDER 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module Oled_Display 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               40 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     40 Bit        Muxes := 3     
+	  32 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	  32 Input     20 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 1     
+	  32 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  32 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module LFSR_13b 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               13 Bit    Registers := 1     
+Module DIST_CALC 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      7 Bit       Adders := 1     
+	   3 Input      6 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 2     
+Module CIRCLE_GENERATOR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 4     
+	               13 Bit    Registers := 5     
+	                6 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     14 Bit        Muxes := 12    
+	   5 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 16    
+	   5 Input     13 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module CLICK_DETECTOR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 4     
++---Registers : 
+	               13 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     13 Bit        Muxes := 3     
+Module RIPPLES 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 4     
++---Registers : 
+	               16 Bit    Registers := 1     
++---Multipliers : 
+	                32x32  Multipliers := 4     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 2     
+	   5 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+Module DISCOMBOBULATOR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 2     
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input     19 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 4     
+	   2 Input      6 Bit       Adders := 8     
++---Registers : 
+	               21 Bit    Registers := 2     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                7 Bit    Registers := 4     
+	                6 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     21 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 1     
+	   2 Input     19 Bit        Muxes := 1     
+	   8 Input     16 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 2     
+Module OLED_MANAGER 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 2     
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "periodic_check_tick" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "timeout" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "clk_fdiv0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP r_12, operation Mode is: A*B.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+DSP Report: Generating DSP r_12, operation Mode is: A*B.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+DSP Report: Generating DSP r_12, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+DSP Report: operator r_12 is absorbed into DSP r_12.
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:38]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:37]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:40]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.srcs/sources_1/new/RIPPLES.v:39]
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: Generating DSP oled_circ4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+DSP Report: operator oled_circ4 is absorbed into DSP oled_circ4.
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design INTEGRATOR_PLACEHOLDER has port an[3] driven by constant 1
+WARNING: [Synth 8-3917] design INTEGRATOR_PLACEHOLDER has port an[2] driven by constant 1
+WARNING: [Synth 8-3917] design INTEGRATOR_PLACEHOLDER has port an[1] driven by constant 1
+WARNING: [Synth 8-3917] design INTEGRATOR_PLACEHOLDER has port seg[0] driven by constant 1
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port btnC
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port middle
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port right
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port new_event
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[15]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[14]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[13]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[12]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[11]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[10]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[9]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[8]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[7]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[6]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[5]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[4]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port sw[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[12]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[11]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[10]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[9]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[8]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[7]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[6]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[5]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[4]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port pixel_index[0]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[3]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[2]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[1]
+WARNING: [Synth 8-3331] design CIRCLE_TOP has unconnected port zpos[0]
+WARNING: [Synth 8-3331] design CLOCK_DIVIDER has unconnected port freq_out[31]
+WARNING: [Synth 8-3331] design INTEGRATOR_PLACEHOLDER has unconnected port JC[2]
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[0]' (FDR) to 'circle_top_inst/ripples_inst/oled_circ_reg[1]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[1]' (FDR) to 'circle_top_inst/ripples_inst/oled_circ_reg[2]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[2]' (FDR) to 'circle_top_inst/ripples_inst/oled_circ_reg[3]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[3]' (FDR) to 'circle_top_inst/ripples_inst/oled_circ_reg[4]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[5]' (FDR) to 'circle_top_inst/ripples_inst/oled_circ_reg[7]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[6]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[8]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[8]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[9]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[9]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[10]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[11]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[12]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[12]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[13]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[13]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[14]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[0]' (FDRE) to 'mousectl_inst/y_max_reg[1]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[1]' (FDRE) to 'mousectl_inst/y_max_reg[2]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[2]' (FDRE) to 'mousectl_inst/y_max_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[3]' (FDRE) to 'mousectl_inst/y_max_reg[4]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[4]' (FDRE) to 'mousectl_inst/y_max_reg[5]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[5]' (FDRE) to 'mousectl_inst/y_max_reg[6]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[6]' (FDRE) to 'mousectl_inst/y_max_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[7]' (FDSE) to 'mousectl_inst/y_max_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[8]' (FDRE) to 'mousectl_inst/y_max_reg[10]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[9]' (FDSE) to 'mousectl_inst/x_max_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[10]' (FDRE) to 'mousectl_inst/y_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/y_max_reg[11]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[0]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[1]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[2]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[3]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[4]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[5]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[6]' (FDSE) to 'mousectl_inst/x_max_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[7]' (FDSE) to 'mousectl_inst/x_max_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[8]' (FDSE) to 'mousectl_inst/x_max_reg[9]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (mousectl_inst/\x_max_reg[9] )
+INFO: [Synth 8-3886] merging instance 'mousectl_inst/x_max_reg[10]' (FDRE) to 'mousectl_inst/x_max_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mousectl_inst/\x_max_reg[11] )
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/ripples_inst/oled_circ_reg[14]' (FDS) to 'circle_top_inst/ripples_inst/oled_circ_reg[15]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[0]' (FDRE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[1]' (FDSE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[2]' (FDRE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[3]' (FDSE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[4]' (FDRE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[9]' (FDSE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[15]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[10]' (FDRE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/discombobulator_inst/disco_data_reg[11]' (FDSE) to 'circle_top_inst/discombobulator_inst/disco_data_reg[15]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/oled_manager_inst/pixel_data_reg[0]' (FDS) to 'circle_top_inst/oled_manager_inst/pixel_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/oled_manager_inst/pixel_data_reg[2]' (FDS) to 'circle_top_inst/oled_manager_inst/pixel_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'circle_top_inst/oled_manager_inst/pixel_data_reg[11]' (FDS) to 'circle_top_inst/oled_manager_inst/pixel_data_reg[15]'
+WARNING: [Synth 8-3332] Sequential element (xpos_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (xpos_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (xpos_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (xpos_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (xpos_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (ypos_reg[6]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (zpos_reg[3]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (zpos_reg[2]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (zpos_reg[1]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (zpos_reg[0]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (middle_down_reg) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (middle_reg) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (right_down_reg) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (right_reg) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (new_event_reg) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (x_max_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (x_max_reg[11]) is unused and will be removed from module MouseCtl.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 758.969 ; gain = 501.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|CIRCLE_GENERATOR | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|CIRCLE_GENERATOR | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|CIRCLE_GENERATOR | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|RIPPLES          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 807.207 ; gain = 549.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 811.871 ; gain = 554.539
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:47 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5365] Flop mousectl_inst/Inst_Ps2Interface/ps2_clk_h_reg is being inverted and renamed to mousectl_inst/Inst_Ps2Interface/ps2_clk_h_reg_inv.
+INFO: [Synth 8-5365] Flop mousectl_inst/Inst_Ps2Interface/ps2_data_h_reg is being inverted and renamed to mousectl_inst/Inst_Ps2Interface/ps2_data_h_reg_inv.
+INFO: [Synth 8-6064] Net \circle_top_inst/ripples_inst/oled_circ5 [31] is driving 74 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_2277 is driving 74 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_2275 is driving 74 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net n_0_2273 is driving 74 big block pins (URAM, BRAM and DSP loads). Created 8 replicas of its driver. 
+INFO: [Synth 8-6064] Net \circle_top_inst/circle_generator_inst/r_13 [14] is driving 88 big block pins (URAM, BRAM and DSP loads). Created 9 replicas of its driver. 
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     2|
+|2     |CARRY4  |   599|
+|3     |DSP48E1 |    15|
+|4     |LUT1    |   160|
+|5     |LUT2    |  1196|
+|6     |LUT3    |   582|
+|7     |LUT4    |   655|
+|8     |LUT5    |   579|
+|9     |LUT6    |  1043|
+|10    |FDCE    |    76|
+|11    |FDPE    |     4|
+|12    |FDRE    |   722|
+|13    |FDRE_1  |    31|
+|14    |FDSE    |    48|
+|15    |FDSE_1  |     1|
+|16    |IBUF    |     3|
+|17    |IOBUF   |     2|
+|18    |OBUF    |    18|
+|19    |OBUFT   |     1|
++------+--------+------+
+
+Report Instance Areas: 
++------+--------------------------+-----------------+------+
+|      |Instance                  |Module           |Cells |
++------+--------------------------+-----------------+------+
+|1     |top                       |                 |  5737|
+|2     |  circle_top_inst         |CIRCLE_TOP       |  3957|
+|3     |    circle_generator_inst |CIRCLE_GENERATOR |  2153|
+|4     |      dist_calc_inst      |DIST_CALC_7      |   372|
+|5     |    click_detector_inst   |CLICK_DETECTOR   |   634|
+|6     |      dist_calc_inst_1    |DIST_CALC_3      |   123|
+|7     |      dist_calc_inst_2    |DIST_CALC_4      |   123|
+|8     |      dist_calc_inst_3    |DIST_CALC_5      |   123|
+|9     |      dist_calc_inst_4    |DIST_CALC_6      |   126|
+|10    |    discombobulator_inst  |DISCOMBOBULATOR  |   458|
+|11    |    oled_manager_inst     |OLED_MANAGER     |    44|
+|12    |    ripples_inst          |RIPPLES          |   668|
+|13    |      dist_calc_inst_1    |DIST_CALC        |   120|
+|14    |      dist_calc_inst_2    |DIST_CALC_0      |   118|
+|15    |      dist_calc_inst_3    |DIST_CALC_1      |   119|
+|16    |      dist_calc_inst_4    |DIST_CALC_2      |   118|
+|17    |  clk_6p25M_inst          |CLOCK_DIVIDER    |    64|
+|18    |  lfsr_13b_inst           |LFSR_13b         |   242|
+|19    |  mousectl_inst           |MouseCtl         |   820|
+|20    |    Inst_Ps2Interface     |Ps2Interface     |   283|
+|21    |  oled_display_inst       |Oled_Display     |   437|
++------+--------------------------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 64 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:41 . Memory (MB): peak = 935.953 ; gain = 335.508
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:48 . Memory (MB): peak = 935.953 ; gain = 678.621
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 651 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 34 instances were transformed.
+  FDRE_1 => FDRE (inverted pins: C): 31 instances
+  FDSE_1 => FDSE (inverted pins: C): 1 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+188 Infos, 138 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:51 . Memory (MB): peak = 935.953 ; gain = 691.660
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/NUS/Vivado/Project/CAPTCHA_CIRCLES/CAPTCHA_CIRCLES.runs/synth_1/INTEGRATOR_PLACEHOLDER.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file INTEGRATOR_PLACEHOLDER_utilization_synth.rpt -pb INTEGRATOR_PLACEHOLDER_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 935.953 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 31 01:16:19 2023...
