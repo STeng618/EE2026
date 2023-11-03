@@ -273,11 +273,6 @@ module Geodesics(
         if (reset) answered = 0;
         if (reset) incorrect = 0;
         if (reset) correct = 0;
-        if (reset) begin
-            for ( i = 0; i < 6144; i = i + 1 ) begin
-                purple_drawing [i] = 0;
-            end
-        end
     end
 endmodule
 
