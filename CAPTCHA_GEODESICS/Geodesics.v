@@ -105,13 +105,12 @@ module Geodesics(
     // Pixel counters
     reg [10:0] pixel_drawn = 0;
     reg [10:0] pixel_correct = 0;
-    reg [10:0] pixel_incorrect = 0;
     
     ////////////////////////////////////////////// TBC //////////////////////////////////////////////
     assign led[15] = answered;
     assign led[14] = incorrect;
     assign led[13] = correct;
-    assign led[10:0] = pixel_correct;
+    assign led[10:0] = pixel_drawn;
     ////////////////////////////////////////////// TBC //////////////////////////////////////////////
     
     // Hold to draw
@@ -165,13 +164,13 @@ module Geodesics(
             if (mouse_l) begin
                 if (((x == mouse_x) || ((x - mouse_x) == 1) || ((mouse_x - x) == 1)) && ((y == mouse_y) || ((y - mouse_y) == 1) || ((mouse_y - y) == 1))) begin
                     purple_drawing[mouse_pixel_index] <= 1;
+                    if (purple_drawing[mouse_pixel_index] == 0) pixel_drawn <= (pixel_drawn + 1);
                 end
                 answered <= 1;
             end
             
             if ( purple_drawing [pixel_index] == 1 ) begin
                 pixel_data <= PURPLE;
-                pixel_drawn <= pixel_drawn + 1;
             end
         end 
         
@@ -183,9 +182,8 @@ module Geodesics(
             (random_minor_radius - 2) * (random_minor_radius - 2) * (y - circle_center_y) * (y - circle_center_y) <=
             (std_oval_major_radius) * (std_oval_major_radius) * (random_minor_radius) * (random_minor_radius))) begin
             
-            // Check drawing 
-            pixel_correct <= ( purple_drawing [pixel_index] == 1 ) ? pixel_correct + 1: pixel_correct;
-           
+            if (pixel_data != CYAN) pixel_correct <= (pixel_correct + 1);
+                    
             // Generating 2 random points
             if (polarity) begin
                 if ((x > circle_center_x) && (y > 4)) begin
@@ -268,7 +266,7 @@ module Geodesics(
         end  
         
         // Analysis
-        correct <= (answered && ~mouse_l && ((pixel_correct >= 10) && (pixel_drawn - pixel_correct < 10)));
+        correct <= (answered && ~mouse_l && (pixel_drawn > (pixel_correct - 5)) && (pixel_drawn < (pixel_correct + 5)));
         incorrect <= (answered && ~mouse_l && ~correct);
         
         // Reset
