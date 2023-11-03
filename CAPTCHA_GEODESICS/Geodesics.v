@@ -28,7 +28,8 @@ module Geodesics(
     input [11:0] mouse_x, mouse_y,
     input mouse_l, reset,
     output [15:0] led,
-    output reg [31:0] pixel_data = 16'b00000_111111_00000);
+    output reg [31:0] pixel_data = 16'b00000_111111_00000)
+    output correct, incorrect;
 
     parameter BLUE   = 16'b00000_000000_11111;
     parameter BLACK  = 16'b00000_000000_00000;
