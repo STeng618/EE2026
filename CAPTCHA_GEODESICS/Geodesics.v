@@ -28,8 +28,9 @@ module Geodesics(
     input [11:0] mouse_x, mouse_y,
     input mouse_l, reset,
     output [15:0] led,
-    output reg [31:0] pixel_data = 16'b00000_111111_00000)
-    output correct, incorrect;
+    output reg [31:0] pixel_data = 16'b00000_111111_00000,
+    output reg correct = 0, incorrect = 0
+    );
 
     parameter BLUE   = 16'b00000_000000_11111;
     parameter BLACK  = 16'b00000_000000_00000;
@@ -40,10 +41,6 @@ module Geodesics(
     parameter PURPLE = 16'b11111_000000_11110;  
     parameter RED    = 16'b11111_000000_00000;
     parameter YELLOW = 16'b11111_111111_00000;
-  
-        
-    // Debouncing
-    reg [31:0] bounce = 0;
     
     reg [10:0] state = 0;
     
@@ -107,9 +104,7 @@ module Geodesics(
     
     // Check answer
     reg answered = 0;
-    reg incorrect = 0;
-    reg correct = 0;
-    
+        
     // Pixel counters
     reg [10:0] pixel_drawn = 0;
     reg [10:0] pixel_correct = 0;
@@ -120,7 +115,6 @@ module Geodesics(
     assign led[15] = answered;
     assign led[14] = incorrect;
     assign led[13] = correct;
-    assign led[12] = (~bounce);
     assign led[10:0] = state;
     ////////////////////////////////////////////// TBC //////////////////////////////////////////////
     
@@ -196,6 +190,9 @@ module Geodesics(
     wire [12:0] mouse_pixel_index;
     assign mouse_pixel_index = mouse_y * 96 + mouse_x;
 
+    always @(posedge reset) begin
+        drawing <= drawing + 1;
+    end
     
     // Main loop
     always @(posedge clock) begin
@@ -215,21 +212,15 @@ module Geodesics(
             state <= pixel_overlap;
         end
         
-        if ((bounce == 0) && (reset)) begin
-            bounce <= 1;
-            answered = 0;
-            incorrect = 0;
-            correct = 0;
-            pixel_drawn = 0;
-            pixel_correct = 0;
-            pixel_overlap = 0;
-            pixel_off = 0;
-            drawing <= drawing + 1;
+        if (reset) begin
+            answered <= 0;
+            pixel_drawn <= 0;
+            pixel_correct <= 0;
+            pixel_overlap <= 0;
+            pixel_off <= 0;
         end
-        
-        bounce = ( bounce == 9_999_999 || bounce == 0 ) ? 0 : bounce + 1;          
          
-        if (drawing < 4) begin
+        else if (drawing < 4) begin
             // Calculating distance^2 of each pixel from the circle center
             distance_x <= (x > circle_center_x) ? (x - circle_center_x) : (circle_center_x - x);
             distance_y <= (y > circle_center_y) ? (y - circle_center_y) : (circle_center_y - y);
@@ -296,7 +287,7 @@ module Geodesics(
                 end
 
                 if ( drawing_3 [pixel_index] == 1 ) begin
-                    pixel_data <= PURPLE;
+                    pixel_data <= YELLOW;
                 end
 
             end 
@@ -453,9 +444,16 @@ module Geodesics(
             end  
             
             // Analysis
-            correct <= (answered && ~mouse_l && (pixel_overlap > 7) && (pixel_off < 128));
-            incorrect <= (answered && ~mouse_l && (~correct));
-            
+            if (answered && ~mouse_l) begin
+                if ((pixel_overlap > 7) && (pixel_off < 128)) begin
+                    correct <= 1;
+                    incorrect <= 0;
+                end
+                else begin
+                    incorrect <= 1;
+                    correct <= 0;
+                end
+            end
         end  
     end
 endmodule
