@@ -197,7 +197,9 @@ module Geodesics(
     // Main loop
     always @(posedge clock) begin
     
-        pixel_off <= pixel_drawn - pixel_overlap;
+        if (pixel_overlap < pixel_drawn) begin
+            pixel_off <= pixel_drawn - pixel_overlap;
+        end
         
         if (sw[0]) begin 
             state <= pixel_drawn;
@@ -437,7 +439,7 @@ module Geodesics(
             
             // Analysis
             if (answered && ~mouse_l && ~reset) begin
-                if ((pixel_overlap > 7) && (pixel_off < 128)) begin
+                if (((pixel_overlap > 7) && (pixel_off < 128)) || (pixel_overlap > pixel_drawn)) begin
                     correct <= 1;
                     incorrect <= 0;
                 end
