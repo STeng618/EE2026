@@ -42,7 +42,7 @@ module Geodesics(
     parameter RED    = 16'b11111_000000_00000;
     parameter YELLOW = 16'b11111_111111_00000;
     
-    reg [15:0] state = 0;
+    reg [10:0] state = 0;
     
      // Main circle
     parameter circle_radius = 32;
@@ -224,238 +224,240 @@ module Geodesics(
             pixel_overlap <= 0;
         end
          
-        else if (drawing < 4) begin
-            // Calculating distance^2 of each pixel from the circle center
-            distance_x <= (x > circle_center_x) ? (x - circle_center_x) : (circle_center_x - x);
-            distance_y <= (y > circle_center_y) ? (y - circle_center_y) : (circle_center_y - y);
-    
-            distance_squared <= distance_x * distance_x + distance_y * distance_y;  
-    
-            pixel_data <= BLACK;
-            
-            // Generating main circle
-            if (distance_squared < (circle_radius * circle_radius)) begin
-            
-                pixel_data <= BLUE; 
+        else if (sw[15]) begin 
+            if (drawing < 4) begin
+                // Calculating distance^2 of each pixel from the circle center
+                distance_x <= (x > circle_center_x) ? (x - circle_center_x) : (circle_center_x - x);
+                distance_y <= (y > circle_center_y) ? (y - circle_center_y) : (circle_center_y - y);
+        
+                distance_squared <= distance_x * distance_x + distance_y * distance_y;  
+        
+                pixel_data <= BLACK;
                 
-                // Generating two random points
-                if((((std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (x - circle_center_x)   * (x - circle_center_x) +
-                     (std_oval_minor_radius + 1) * (std_oval_minor_radius + 1) * (y - circle_center_y)   * (y - circle_center_y) >=
-                     (std_oval_major_radius)     * (std_oval_major_radius)     * (std_oval_minor_radius) * (std_oval_minor_radius)) &&
-                    ((std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (x - circle_center_x)   * (x - circle_center_x) +
-                     (std_oval_minor_radius - 1) * (std_oval_minor_radius - 1) * (y - circle_center_y)   * (y - circle_center_y) <=
-                     (std_oval_major_radius)     * (std_oval_major_radius)     * (std_oval_minor_radius) * (std_oval_minor_radius)))||
-                   (((std_oval_minor_radius + 1) * (std_oval_minor_radius + 1) * (x - circle_center_x)   * (x - circle_center_x) +
-                     (std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (y - circle_center_y)   * (y - circle_center_y) >=
-                     (std_oval_minor_radius)     * (std_oval_minor_radius)     * (std_oval_major_radius) * (std_oval_major_radius)) &&
-                    ((std_oval_minor_radius - 1) * (std_oval_minor_radius - 1) * (x - circle_center_x)   * (x - circle_center_x) +
-                     (std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (y - circle_center_y)   * (y - circle_center_y) <=
-                     (std_oval_minor_radius)     * (std_oval_minor_radius)     * (std_oval_major_radius) * (std_oval_major_radius)))) begin
+                // Generating main circle
+                if (distance_squared < (circle_radius * circle_radius)) begin
+                
+                    pixel_data <= BLUE; 
                     
-                    pixel_data <= WHITE;
-    
-                end
-                
-                // Generating trail behind cursor
-                if (mouse_l) begin
-                    if (((x == mouse_x) || ((x - mouse_x) == 1)) && 
-                        ((y == mouse_y) || ((y - mouse_y) == 1) )) begin
-                        if (drawing == 1) begin
-                            drawing_1[pixel_index] <= 1;
-                            if (drawing_1[pixel_index] == 0) begin 
-                                pixel_drawn <= (pixel_drawn + 1);
+                    // Generating two random points
+                    if((((std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (x - circle_center_x)   * (x - circle_center_x) +
+                         (std_oval_minor_radius + 1) * (std_oval_minor_radius + 1) * (y - circle_center_y)   * (y - circle_center_y) >=
+                         (std_oval_major_radius)     * (std_oval_major_radius)     * (std_oval_minor_radius) * (std_oval_minor_radius)) &&
+                        ((std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (x - circle_center_x)   * (x - circle_center_x) +
+                         (std_oval_minor_radius - 1) * (std_oval_minor_radius - 1) * (y - circle_center_y)   * (y - circle_center_y) <=
+                         (std_oval_major_radius)     * (std_oval_major_radius)     * (std_oval_minor_radius) * (std_oval_minor_radius)))||
+                       (((std_oval_minor_radius + 1) * (std_oval_minor_radius + 1) * (x - circle_center_x)   * (x - circle_center_x) +
+                         (std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (y - circle_center_y)   * (y - circle_center_y) >=
+                         (std_oval_minor_radius)     * (std_oval_minor_radius)     * (std_oval_major_radius) * (std_oval_major_radius)) &&
+                        ((std_oval_minor_radius - 1) * (std_oval_minor_radius - 1) * (x - circle_center_x)   * (x - circle_center_x) +
+                         (std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (y - circle_center_y)   * (y - circle_center_y) <=
+                         (std_oval_minor_radius)     * (std_oval_minor_radius)     * (std_oval_major_radius) * (std_oval_major_radius)))) begin
+                        
+                        pixel_data <= WHITE;
+        
+                    end
+                    
+                    // Generating trail behind cursor
+                    if (mouse_l) begin
+                        if (((x == mouse_x) || ((x - mouse_x) == 1)) && 
+                            ((y == mouse_y) || ((y - mouse_y) == 1) )) begin
+                            if (drawing == 1) begin
+                                drawing_1[pixel_index] <= 1;
+                                if (drawing_1[pixel_index] == 0) begin 
+                                    pixel_drawn <= (pixel_drawn + 1);
+                                end
                             end
+                            if (drawing == 2) begin
+                                drawing_2[pixel_index] <= 1;
+                                if (drawing_2[pixel_index] == 0) begin
+                                    pixel_drawn <= (pixel_drawn + 1);
+                                end
+                            end       
+                            if (drawing == 3) begin
+                                drawing_3[pixel_index] <= 1;
+                                if (drawing_3[pixel_index] == 0) begin
+                                    pixel_drawn <= (pixel_drawn + 1);
+                                end
+                            end                      
+                        end
+                        answered <= 1;
+                    end
+                    
+                    if ( drawing_1 [pixel_index] == 1 ) begin
+                        pixel_data <= PURPLE;
+                    end
+    
+                    if ( drawing_2 [pixel_index] == 1 ) begin
+                        pixel_data <= GREEN;
+                    end
+    
+                    if ( drawing_3 [pixel_index] == 1 ) begin
+                        pixel_data <= YELLOW;
+                    end
+    
+                end 
+                
+                // Generating arbitrary great circle 
+                if(((std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (x - circle_center_x) * (x - circle_center_x) +
+                    (random_minor_radius + 2) * (random_minor_radius + 2) * (y - circle_center_y) * (y - circle_center_y) >=
+                    (std_oval_major_radius) * (std_oval_major_radius) * (random_minor_radius) * (random_minor_radius)) &&
+                   ((std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (x - circle_center_x) * (x - circle_center_x) +
+                    (random_minor_radius - 2) * (random_minor_radius - 2) * (y - circle_center_y) * (y - circle_center_y) <=
+                    (std_oval_major_radius) * (std_oval_major_radius) * (random_minor_radius) * (random_minor_radius))) begin
+                    
+                    if (pixel_data == RED) begin
+                        if (drawing == 1) begin
+    
+                            if (red_1 [pixel_index] == 0) begin
+                                pixel_correct <= pixel_correct + 1;
+                            end
+                            red_1 [pixel_index] = 1;
                         end
                         if (drawing == 2) begin
-                            drawing_2[pixel_index] <= 1;
-                            if (drawing_2[pixel_index] == 0) begin
-                                pixel_drawn <= (pixel_drawn + 1);
+                            if (red_2 [pixel_index] == 0) begin
+                                pixel_correct <= pixel_correct + 1;
                             end
+                            red_2 [pixel_index] = 1;
                         end       
                         if (drawing == 3) begin
-                            drawing_3[pixel_index] <= 1;
-                            if (drawing_3[pixel_index] == 0) begin
-                                pixel_drawn <= (pixel_drawn + 1);
+                            if (red_3 [pixel_index] == 0) begin
+                                pixel_correct <= pixel_correct + 1;
                             end
-                        end                      
-                    end
-                    answered <= 1;
-                end
-                
-                if ( drawing_1 [pixel_index] == 1 ) begin
-                    pixel_data <= PURPLE;
-                end
-
-                if ( drawing_2 [pixel_index] == 1 ) begin
-                    pixel_data <= GREEN;
-                end
-
-                if ( drawing_3 [pixel_index] == 1 ) begin
-                    pixel_data <= YELLOW;
-                end
-
-            end 
-            
-            // Generating arbitrary great circle 
-            if(((std_oval_major_radius + 1) * (std_oval_major_radius + 1) * (x - circle_center_x) * (x - circle_center_x) +
-                (random_minor_radius + 2) * (random_minor_radius + 2) * (y - circle_center_y) * (y - circle_center_y) >=
-                (std_oval_major_radius) * (std_oval_major_radius) * (random_minor_radius) * (random_minor_radius)) &&
-               ((std_oval_major_radius - 1) * (std_oval_major_radius - 1) * (x - circle_center_x) * (x - circle_center_x) +
-                (random_minor_radius - 2) * (random_minor_radius - 2) * (y - circle_center_y) * (y - circle_center_y) <=
-                (std_oval_major_radius) * (std_oval_major_radius) * (random_minor_radius) * (random_minor_radius))) begin
-                
-                if (pixel_data == RED) begin
-                    if (drawing == 1) begin
-
-                        if (red_1 [pixel_index] == 0) begin
-                            pixel_correct <= pixel_correct + 1;
+                            red_3 [pixel_index] = 1;
                         end
-                        red_1 [pixel_index] = 1;
                     end
-                    if (drawing == 2) begin
-                        if (red_2 [pixel_index] == 0) begin
-                            pixel_correct <= pixel_correct + 1;
-                        end
-                        red_2 [pixel_index] = 1;
-                    end       
-                    if (drawing == 3) begin
-                        if (red_3 [pixel_index] == 0) begin
-                            pixel_correct <= pixel_correct + 1;
-                        end
-                        red_3 [pixel_index] = 1;
-                    end
-                end
+                            
+                    // Generating 2 random points
+                    if (polarity) begin
+                        if ((x > circle_center_x) && (y > 4)) begin
                         
-                // Generating 2 random points
-                if (polarity) begin
-                    if ((x > circle_center_x) && (y > 4)) begin
+                            if (((y+1) == (random_pt_H)) ||
+                                ((y-1) == (random_pt_H)) ||
+                                ((y)   == (random_pt_H))) begin
+                               
+                                pixel_data <= RED;
+                                
+                            end
+                            if (((y+2) == (random_pt_H)) ||
+                               ((y-2) == (random_pt_H))) begin
+                              
+                                pixel_data <= BLACK;
+                               
+                            end
+                            if (((y-1) == (random_pt_L)) ||
+                                ((y+1) == (random_pt_L)) ||
+                               ((y)   == (random_pt_L))) begin
+                              
+                                pixel_data <= RED;
+                               
+                            end
+                            if (((y-2) == (random_pt_L)) ||
+                              ((y+2)   == (random_pt_L))) begin
+                             
+                                pixel_data <= BLACK;
+                              
+                            end 
+                        end       
+                    end
                     
-                        if (((y+1) == (random_pt_H)) ||
-                            ((y-1) == (random_pt_H)) ||
-                            ((y)   == (random_pt_H))) begin
-                           
-                            pixel_data <= RED;
-                            
+                    if (~polarity) begin
+                        if ((x < circle_center_x) && (y > 4)) begin
+                        
+                            if (((y+1) == (random_pt_H)) ||
+                                ((y-1) == (random_pt_H)) ||
+                                ((y)   == (random_pt_H))) begin
+                               
+                                pixel_data <= RED;
+                                
+                            end
+                            if (((y+2) == (random_pt_H)) ||
+                               ((y-2) == (random_pt_H))) begin
+                              
+                                pixel_data <= BLACK;
+                               
+                            end
+                            if (((y-1) == (random_pt_L)) ||
+                                ((y+1) == (random_pt_L)) ||
+                               ((y)   == (random_pt_L))) begin
+                              
+                                pixel_data <= RED;
+                               
+                            end
+                            if (((y-2) == (random_pt_L)) ||
+                                ((y+2) == (random_pt_L))) begin
+                             
+                                pixel_data <= BLACK;
+                              
+                            end 
+                        end       
+                    end
+        
+                    // Generating geodesics
+                    if ((answered) && (~mouse_l)) begin
+                        if ((y >= random_pt_H) && (y <= random_pt_L)) begin
+                            if (~polarity) begin
+                                if (x < circle_center_x) pixel_data <= RED;
+                            end
+                            if (polarity) begin
+                                if (x > circle_center_x) pixel_data <= RED;
+                            end
                         end
-                        if (((y+2) == (random_pt_H)) ||
-                           ((y-2) == (random_pt_H))) begin
-                          
-                            pixel_data <= BLACK;
-                           
-                        end
-                        if (((y-1) == (random_pt_L)) ||
-                            ((y+1) == (random_pt_L)) ||
-                           ((y)   == (random_pt_L))) begin
-                          
-                            pixel_data <= RED;
-                           
-                        end
-                        if (((y-2) == (random_pt_L)) ||
-                          ((y+2)   == (random_pt_L))) begin
-                         
-                            pixel_data <= BLACK;
-                          
-                        end 
-                    end       
+                    end
                 end
                 
-                if (~polarity) begin
-                    if ((x < circle_center_x) && (y > 4)) begin
+                if ((drawing == 1) && (mouse_l)) begin
+                    if (compare_1 [pixel_index] == 0) begin
+                        if ((red_1 [pixel_index] == 1) && (drawing_1 [pixel_index] == 1)) begin
+                            pixel_overlap <= pixel_overlap + 1;
+                            compare_1 [pixel_index] = 1;
+                        end
+                    end
+                end
+                
+                if ((drawing == 2) && (mouse_l)) begin
+                    if (compare_2 [pixel_index] == 0) begin
+                        if ((red_2 [pixel_index] == 1) && (drawing_2 [pixel_index] == 1)) begin
+                            pixel_overlap <= pixel_overlap + 1;
+                            compare_2 [pixel_index] = 1;
+                        end
+                    end
+                end       
+                if ((drawing == 3) && (mouse_l)) begin
+                    if (compare_3 [pixel_index] == 0) begin
+                        if ((red_3 [pixel_index] == 1) && (drawing_3 [pixel_index] == 1)) begin
+                            pixel_overlap <= pixel_overlap + 1;
+                            compare_3 [pixel_index] = 1;
+                        end
+                    end
+                end
+                
+                // Cursor
+                if (((x == mouse_x) || ((x - mouse_x) == 1) || ((mouse_x - x) == 1)) && ((y == mouse_y) || ((y - mouse_y) == 1) || ((mouse_y - y) == 1))) begin
                     
-                        if (((y+1) == (random_pt_H)) ||
-                            ((y-1) == (random_pt_H)) ||
-                            ((y)   == (random_pt_H))) begin
-                           
-                            pixel_data <= RED;
-                            
-                        end
-                        if (((y+2) == (random_pt_H)) ||
-                           ((y-2) == (random_pt_H))) begin
-                          
-                            pixel_data <= BLACK;
-                           
-                        end
-                        if (((y-1) == (random_pt_L)) ||
-                            ((y+1) == (random_pt_L)) ||
-                           ((y)   == (random_pt_L))) begin
-                          
-                            pixel_data <= RED;
-                           
-                        end
-                        if (((y-2) == (random_pt_L)) ||
-                            ((y+2) == (random_pt_L))) begin
-                         
-                            pixel_data <= BLACK;
-                          
-                        end 
-                    end       
-                end
-    
-                // Generating geodesics
-                if ((answered) && (~mouse_l)) begin
-                    if ((y >= random_pt_H) && (y <= random_pt_L)) begin
-                        if (~polarity) begin
-                            if (x < circle_center_x) pixel_data <= RED;
-                        end
-                        if (polarity) begin
-                            if (x > circle_center_x) pixel_data <= RED;
-                        end
-                    end
-                end
-            end
-            
-            if ((drawing == 1) && (mouse_l)) begin
-                if (compare_1 [pixel_index] == 0) begin
-                    if ((red_1 [pixel_index] == 1) && (drawing_1 [pixel_index] == 1)) begin
-                        pixel_overlap <= pixel_overlap + 1;
-                        compare_1 [pixel_index] = 1;
-                    end
-                end
-            end
-            
-            if ((drawing == 2) && (mouse_l)) begin
-                if (compare_2 [pixel_index] == 0) begin
-                    if ((red_2 [pixel_index] == 1) && (drawing_2 [pixel_index] == 1)) begin
-                        pixel_overlap <= pixel_overlap + 1;
-                        compare_2 [pixel_index] = 1;
-                    end
-                end
-            end       
-            if ((drawing == 3) && (mouse_l)) begin
-                if (compare_3 [pixel_index] == 0) begin
-                    if ((red_3 [pixel_index] == 1) && (drawing_3 [pixel_index] == 1)) begin
-                        pixel_overlap <= pixel_overlap + 1;
-                        compare_3 [pixel_index] = 1;
-                    end
-                end
-            end
-            
-            // Cursor
-            if (((x == mouse_x) || ((x - mouse_x) == 1) || ((mouse_x - x) == 1)) && ((y == mouse_y) || ((y - mouse_y) == 1) || ((mouse_y - y) == 1))) begin
+                    pixel_data <= ORANGE;
+                    
+                end  
                 
-                pixel_data <= ORANGE;
-                
+                // Analysis
+                if (answered && ~mouse_l && ~reset) begin
+                    if ((pixel_overlap > 9) || (pixel_off < 128)) begin
+                        correct <= 1;
+                        incorrect <= 0;
+                    end
+                    if (((pixel_overlap <= 9) || (pixel_off >= 128)) || (pixel_overlap > pixel_drawn)) begin
+                        incorrect <= 1;
+                        correct <= 0;
+                    end
+                end
             end  
-            
-            // Analysis
-            if (answered && ~mouse_l && ~reset) begin
-                if ((pixel_overlap > 9) || (pixel_off < 128)) begin
-                    correct <= 1;
-                    incorrect <= 0;
-                end
-                if (((pixel_overlap <= 9) || (pixel_off >= 128)) || (pixel_overlap > pixel_drawn)) begin
-                    incorrect <= 1;
-                    correct <= 0;
-                end
-            end
-        end  
+        end
     end
 endmodule
 
 
 module lfsr(input clock, reset, load, output reg [3:0] Q = 4'b0000);
     
-    always @ (posedge clock, posedge reset)
+always @ (posedge clock, posedge reset)
     begin
         if (reset) Q <= 0;
         else if (load) begin
