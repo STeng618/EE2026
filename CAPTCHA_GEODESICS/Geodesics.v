@@ -112,9 +112,9 @@ module Geodesics(
     reg [10:0] pixel_overlap = 0;
     
     ////////////////////////////////////////////// TBC //////////////////////////////////////////////
-    assign led[15] = answered;
-    assign led[14] = incorrect;
-    assign led[13] = correct;
+//    assign led[15] = answered;
+//    assign led[14] = incorrect;
+//    assign led[13] = correct;
     assign led[10:0] = state;
     ////////////////////////////////////////////// TBC //////////////////////////////////////////////
     
@@ -193,9 +193,12 @@ module Geodesics(
     always @(posedge reset) begin
         drawing <= drawing + 1;
     end
-    
+        
     // Main loop
     always @(posedge clock) begin
+    
+        pixel_off <= pixel_drawn - pixel_overlap;
+        
         if (sw[0]) begin 
             state <= pixel_drawn;
         end
@@ -217,7 +220,6 @@ module Geodesics(
             pixel_drawn <= 0;
             pixel_correct <= 0;
             pixel_overlap <= 0;
-            pixel_off <= 0;
         end
          
         else if (drawing < 4) begin
@@ -302,22 +304,23 @@ module Geodesics(
                 
                 if (pixel_data == RED) begin
                     if (drawing == 1) begin
+
                         if (red_1 [pixel_index] == 0) begin
-                            red_1 [pixel_index] <= 1;
                             pixel_correct <= pixel_correct + 1;
                         end
+                        red_1 [pixel_index] = 1;
                     end
                     if (drawing == 2) begin
                         if (red_2 [pixel_index] == 0) begin
-                            red_2 [pixel_index] <= 1;
                             pixel_correct <= pixel_correct + 1;
                         end
+                        red_2 [pixel_index] = 1;
                     end       
                     if (drawing == 3) begin
                         if (red_3 [pixel_index] == 0) begin
-                            red_3 [pixel_index] <= 1;
                             pixel_correct <= pixel_correct + 1;
                         end
+                        red_3 [pixel_index] = 1;
                     end
                 end
                         
@@ -403,23 +406,16 @@ module Geodesics(
                 if (compare_1 [pixel_index] == 0) begin
                     if ((red_1 [pixel_index] == 1) && (drawing_1 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
-                        compare_1 [pixel_index] <= 1;
-                    end
-                    if ((red_1 [pixel_index] == 0) && (drawing_1 [pixel_index] == 1)) begin
-                        pixel_off <= pixel_off + 1;
-                        compare_1 [pixel_index] <= 1;
+                        compare_1 [pixel_index] = 1;
                     end
                 end
             end
+            
             if (drawing == 2) begin
                 if (compare_2 [pixel_index] == 0) begin
                     if ((red_2 [pixel_index] == 1) && (drawing_2 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
-                        compare_2 [pixel_index] <= 1;
-                    end
-                    if ((red_2 [pixel_index] == 0) && (drawing_2 [pixel_index] == 1)) begin
-                        pixel_off <= pixel_off + 1;
-                        compare_2 [pixel_index] <= 1;
+                        compare_2 [pixel_index] = 1;
                     end
                 end
             end       
@@ -427,11 +423,7 @@ module Geodesics(
                 if (compare_3 [pixel_index] == 0) begin
                     if ((red_3 [pixel_index] == 1) && (drawing_3 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
-                        compare_3 [pixel_index] <= 1;
-                    end
-                    if ((red_3 [pixel_index] == 0) && (drawing_3 [pixel_index] == 1)) begin
-                        pixel_off <= pixel_off + 1;
-                        compare_3 [pixel_index] <= 1;
+                        compare_3 [pixel_index] = 1;
                     end
                 end
             end
@@ -444,12 +436,12 @@ module Geodesics(
             end  
             
             // Analysis
-            if (answered && ~mouse_l) begin
+            if (answered && ~mouse_l && ~reset) begin
                 if ((pixel_overlap > 7) && (pixel_off < 128)) begin
                     correct <= 1;
                     incorrect <= 0;
                 end
-                else begin
+                if ((pixel_overlap < 7) && (pixel_off > 128)) begin
                     incorrect <= 1;
                     correct <= 0;
                 end
