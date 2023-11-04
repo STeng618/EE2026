@@ -42,7 +42,7 @@ module Geodesics(
     parameter RED    = 16'b11111_000000_00000;
     parameter YELLOW = 16'b11111_111111_00000;
     
-    reg [10:0] state = 0;
+    reg [15:0] state = 0;
     
      // Main circle
     parameter circle_radius = 32;
