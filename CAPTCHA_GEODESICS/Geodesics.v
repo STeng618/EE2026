@@ -404,7 +404,7 @@ module Geodesics(
                 end
             end
             
-            if ((drawing == 1) && (~mouse_l)) begin
+            if ((drawing == 1) && (mouse_l)) begin
                 if (compare_1 [pixel_index] == 0) begin
                     if ((red_1 [pixel_index] == 1) && (drawing_1 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
@@ -413,7 +413,7 @@ module Geodesics(
                 end
             end
             
-            if ((drawing == 2) && (~mouse_l)) begin
+            if ((drawing == 2) && (mouse_l)) begin
                 if (compare_2 [pixel_index] == 0) begin
                     if ((red_2 [pixel_index] == 1) && (drawing_2 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
@@ -421,7 +421,7 @@ module Geodesics(
                     end
                 end
             end       
-            if ((drawing == 3) && (~mouse_l)) begin
+            if ((drawing == 3) && (mouse_l)) begin
                 if (compare_3 [pixel_index] == 0) begin
                     if ((red_3 [pixel_index] == 1) && (drawing_3 [pixel_index] == 1)) begin
                         pixel_overlap <= pixel_overlap + 1;
@@ -439,11 +439,11 @@ module Geodesics(
             
             // Analysis
             if (answered && ~mouse_l && ~reset) begin
-                if (((pixel_overlap > 7) && (pixel_off < 128)) || (pixel_overlap > pixel_drawn)) begin
+                if ((pixel_overlap > 9) || (pixel_off < 128)) begin
                     correct <= 1;
                     incorrect <= 0;
                 end
-                if ((pixel_overlap < 7) && (pixel_off > 128)) begin
+                if (((pixel_overlap <= 9) || (pixel_off >= 128)) || (pixel_overlap > pixel_drawn)) begin
                     incorrect <= 1;
                     correct <= 0;
                 end
